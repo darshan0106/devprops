@@ -59,6 +59,12 @@ const userSchema = new mongoose.Schema(
         ref: "Payment",
       },
     ],
+    investments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Investment",
+      },
+    ],
     lastlogin: {
       type: Date,
       default: Date.now(),
