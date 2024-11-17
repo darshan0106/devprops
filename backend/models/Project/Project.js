@@ -11,6 +11,12 @@ const projectSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    startDate: {
+      type: Date,
+    },
+    endDate: {
+      type: Date,
+    },
     status: {
       type: String,
       enum: ["notStarted", "inProgress", "completed"],
@@ -24,7 +30,19 @@ const projectSchema = new mongoose.Schema(
         required: false,
       },
     ],
-    isBlocked: {
+    discordLink: {
+      type: String,
+      required: true,
+    },
+    controller: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    description: {
+      type: String,
+      default: null,
+    },
+    isCompleted: {
       type: Boolean,
       default: false,
     },

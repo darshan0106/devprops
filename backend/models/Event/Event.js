@@ -31,6 +31,9 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    socioEvents: {
+      type: [String]
+    },
     status: {
       type: String,
       enum: ["notStarted", "live", "ended"],
@@ -40,6 +43,12 @@ const eventSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
+    investments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Investment"
+      }
+    ],
     fundraised: {
       type: Number,
       default: 0,

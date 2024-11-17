@@ -7,6 +7,9 @@ const notificationSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    image: {
+      type: Object,
+    },
     postId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Post",
@@ -15,7 +18,11 @@ const notificationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    isRead: {
+    isImportant: {
+      type: Boolean,
+      default: false,
+    },
+    confirmation: {
       type: Boolean,
       default: false,
     },

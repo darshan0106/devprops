@@ -7,6 +7,9 @@ const badgeSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    image: {
+      type: Object,
+    },
     batchName: {
       type: String,
       enum: ["contributerBatch", "yearlyBatch", "monthlyBatch"],

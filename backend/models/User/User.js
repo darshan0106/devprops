@@ -94,6 +94,13 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    investmentPoints: {
+      type: Number,
+      default: 0,
+    },
+    pointActivity: {
+      type: [Number],
+    },
     Plan: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Plan",
@@ -102,6 +109,12 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    itemsPurchased: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Redeem"
+      }
+    ],
     projects: [
       {
         type: mongoose.Schema.Types.ObjectId,

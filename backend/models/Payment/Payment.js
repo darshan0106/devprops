@@ -23,7 +23,10 @@ const paymentSchema = new mongoose.Schema(
     subscriptionPlan: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Plan",
-      required: true,
+    },
+    itemPurchased: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Redeem"
     },
     amount: {
       type: Number,
