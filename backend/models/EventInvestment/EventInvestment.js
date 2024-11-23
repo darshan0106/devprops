@@ -7,6 +7,10 @@ const investmentSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    eventId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Event",
+    },
     amount: {
       type: Number,
       required: true,

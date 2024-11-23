@@ -1,14 +1,10 @@
 const mongoose = require("mongoose");
 
-const paymentSchema = new mongoose.Schema(
+const subPaymentSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
-    },
-    reference: {
-      type: String,
       required: true,
     },
     currency: {
@@ -24,10 +20,6 @@ const paymentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Plan",
     },
-    itemPurchased: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Redeem"
-    },
     amount: {
       type: Number,
       default: 0,
@@ -41,5 +33,4 @@ const paymentSchema = new mongoose.Schema(
   }
 );
 
-const Payment = mongoose.model("Payment", paymentSchema);
-module.exports = Payment;
+module.exports = mongoose.model("SubPayment", subPaymentSchema);

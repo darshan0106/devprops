@@ -49,6 +49,13 @@ const projectSchema = new mongoose.Schema(
     stack: {
       type: [String],
     },
+    amount: {
+      type: Number,
+      default: 0,
+    },
+    stackBg: {
+      type: Object,
+    },
   },
   {
     timestamps: true,

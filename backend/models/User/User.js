@@ -39,30 +39,38 @@ const userSchema = new mongoose.Schema(
         ref: "Post",
       },
     ],
-    badge: [
+    badges: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Badge",
       },
     ],
-    totalEarning: {
-      type: Number,
-      default: 0,
-    },
+    earnings: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Earning",
+      },
+    ],
     isEmailVerified: {
       type: Boolean,
       default: false,
     },
-    payments: [
+    subPayments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Payment",
+        ref: "SubPayment",
       },
     ],
     investments: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Investment",
+      },
+    ],
+    purchases: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Purchase",
       },
     ],
     lastlogin: {
@@ -90,11 +98,17 @@ const userSchema = new mongoose.Schema(
       type: Object,
       default: null,
     },
-    reviewPoints: {
+    reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
+    totalReviewPoints: {
       type: Number,
       default: 0,
     },
-    investmentPoints: {
+    totalInvestmentPoints: {
       type: Number,
       default: 0,
     },
@@ -109,18 +123,16 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    itemsPurchased: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Redeem"
-      }
-    ],
     projects: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project",
       },
     ],
+    contributerKey: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

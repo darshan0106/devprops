@@ -10,10 +10,13 @@ const eventSchema = new mongoose.Schema(
       type: Object,
       default: null,
     },
+    title: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
-      trim: true,
     },
     likes: [
       {
@@ -21,18 +24,18 @@ const eventSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
-    dislikes: [
+    coments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "Comment",
       },
     ],
     location: {
       type: String,
       required: true,
     },
-    socioEvents: {
-      type: [String]
+    activities: {
+      type: [String],
     },
     status: {
       type: String,
@@ -46,8 +49,8 @@ const eventSchema = new mongoose.Schema(
     investments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Investment"
-      }
+        ref: "EventInvestment",
+      },
     ],
     fundraised: {
       type: Number,

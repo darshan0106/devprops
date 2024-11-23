@@ -1,12 +1,8 @@
 const mongoose = require("mongoose");
 
-const commentSchema = new mongoose.Schema(
+const reviewSchema = new mongoose.Schema(
   {
-    content: {
-      type: String,
-      required: true,
-    },
-    author: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
@@ -14,11 +10,14 @@ const commentSchema = new mongoose.Schema(
     post: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Post",
+    },
+    points: {
+      type: Number,
       required: true,
     },
-    isBlocked: {
-      type: Boolean,
-      default: false,
+    calculatedOn: {
+      type: Date,
+      default: Date.now,
     },
   },
   {
@@ -26,4 +25,4 @@ const commentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = mongoose.model("Review", reviewSchema);

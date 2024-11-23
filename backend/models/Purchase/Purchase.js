@@ -1,14 +1,10 @@
 const mongoose = require("mongoose");
 
-const investmentSchema = new mongoose.Schema(
+const purchaseSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
-    },
-    amount: {
-      type: Number,
       required: true,
     },
     currency: {
@@ -20,12 +16,13 @@ const investmentSchema = new mongoose.Schema(
       default: "pending",
       required: true,
     },
-    investmentPoint: {
+    item: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Item",
+    },
+    amount: {
       type: Number,
       default: 0,
-    },
-    message: {
-      type: String,
     },
   },
   {
@@ -33,4 +30,4 @@ const investmentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Investment", investmentSchema);
+module.exports = mongoose.model("Purchase", purchaseSchema);

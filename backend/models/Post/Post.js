@@ -2,10 +2,13 @@ const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema(
   {
+    title: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
-      trim: true,
     },
     image: {
       type: Object,
@@ -36,6 +39,10 @@ const postSchema = new mongoose.Schema(
     isBlocked: {
       type: Boolean,
       default: false,
+    },
+    date: {
+      type: Date,
+      default: Date.now(),
     },
   },
   {

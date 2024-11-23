@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
-const eventPostSchema = new mongoose.Schema(
+const addPostSchema = new mongoose.Schema(
   {
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     images: {
       type: [Object],
     },
@@ -14,21 +18,10 @@ const eventPostSchema = new mongoose.Schema(
     description: {
       type: String,
     },
-    location: {
-      type: String,
-    },
-    date: {
-      type: Date,
-    },
-    thanks: [
-      {
-        type: String,
-      },
-    ],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("EventPost", eventPostSchema);
+module.exports = mongoose.model("AddPost", addPostSchema);
