@@ -129,6 +129,12 @@ const userSchema = new mongoose.Schema(
         ref: "Project",
       },
     ],
+    envelopss: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Envelope",
+      },
+    ],
     contributerKey: {
       type: String,
       required: true,
