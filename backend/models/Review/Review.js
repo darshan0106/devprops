@@ -7,9 +7,9 @@ const reviewSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    project: {
+    post: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Project",
+      ref: "Post",
     },
     points: {
       type: Number,
